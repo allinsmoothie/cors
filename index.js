@@ -43,7 +43,7 @@ module.exports = function(options) {
   return function cors(ctx, next) {
     // If the Origin header is not present terminate this set of steps.
     // The request is outside the scope of this specification.
-    const requestOrigin = ctx.get('Origin');
+    const requestOrigin = ctx.get('Origin') || ctx.origin;
 
     // Always set Vary header
     // https://github.com/rs/cors/issues/10
